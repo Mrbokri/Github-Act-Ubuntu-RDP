@@ -41,7 +41,9 @@ jobs:
       # sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 
     - name: Installing Desktop Environment (wait for 10 min)
-      run:  sudo add-apt-repository ppa:ubuntukylin-members/ukui -y && sudo apt update && sudo apt install ukui-desktop-environment
+      run: | 
+           sudo apt update && sudo apt install xfce4 && sudo chmod 777 /home/Area69Lab/
+           sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
     - name: Installing Google Chrome Headless
       run: |
            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -61,7 +63,7 @@ jobs:
     - name: generate script
       run: |
            touch setup.sh
-           echo "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g6yOQ1QYuO8g510AgHD40uJ-eT3L2pxA7obbWJx9isQWIf4TjNLXyQVQ3Dx697gSA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" >> "setup.sh"
+           echo "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g5ggwFm1wefz7yB6Sie-obZNar2j3tJm6GDW9oaMeVCYxX2pC3RFkaetVExmu115g" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" >> "setup.sh"
            chmod 777 setup.sh
     - name: initialize GRDP
       run: |   
@@ -72,7 +74,6 @@ jobs:
            expect "Enter the same PIN again: "
            send "123456\r"
            expect eof
-           gnome-open http://askubuntu.com
            '
     - name: Sleep for 30 seconds
       uses: jakejarvis/wait-action@master
