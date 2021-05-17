@@ -61,7 +61,7 @@ jobs:
     - name: generate script
       run: |
            touch setup.sh
-           echo "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g5dxdgyT8k0_gqw0a3hXQG6gIzLmHtO7_UwZz89N_tygN2dg0VWKdxJ58XPAi2TuA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" >> "setup.sh"
+           echo "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g5V_iOtXcSE-j-LDqc18lv0PRNU--qVUp2PQeZu0QHjAo9yaUJCEyxN5IF--Eg9ig" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" >> "setup.sh"
            chmod 777 setup.sh
     - name: initialize GRDP
       run: |   
