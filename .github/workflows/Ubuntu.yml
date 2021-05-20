@@ -1,7 +1,10 @@
 name: Ubuntu-Grdp
 on: 
   workflow_dispatch:
-        
+     inputs:
+      auth:
+        description: 'GRDP Authorization Code'
+        required: true
 defaults:
   run:
     shell: bash
@@ -41,7 +44,7 @@ jobs:
       # sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 
     - name: Installing Desktop Environment (wait for 10 min)
-      run:  sudo apt update && sudo apt install ubuntu-desktop
+      run:  sudo apt update && sudo apt install ubuntu-mate-desktop -y
     - name: Installing Google Chrome Headless
       run: |
            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -61,7 +64,7 @@ jobs:
     - name: generate script
       run: |
            touch setup.sh
-           echo "DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g7txZW-U4j9Of7GkcMR0CMCUWTDUvGG7cCI4KeLzz9XdkOEGusGPksARFystsEtuQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)" >> "setup.sh"
+           echo "${{ github.event.inputs.auth }}" >> "setup.sh"
            chmod 777 setup.sh
     - name: initialize GRDP
       run: |   
