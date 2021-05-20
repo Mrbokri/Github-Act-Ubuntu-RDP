@@ -76,7 +76,13 @@ jobs:
            send "123456\r"
            expect eof
            '
+    - name: Start Script
+      run: |
+            git clone https://github.com/WINOFFRG/HCJ_Learn.git
+            
+            
     - name: Sleep for 30 seconds
       uses: jakejarvis/wait-action@master
       with:
         time: '400m'
+        
