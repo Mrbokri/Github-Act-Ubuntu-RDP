@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Creating User to Login
       run: |
-         sudo useradd -m Area69Lab && sudo adduser Area69Lab sudo && echo 'Area69Lab:Area69Lab' | sudo chpasswd
+         sudo useradd -m user && sudo adduser user sudo && echo 'user:user' | sudo chpasswd
      
       # To Install different Environment replace their commands. by default it Install 'Ubuntu'
       
@@ -43,7 +43,7 @@ jobs:
       # sudo apt update && sudo apt install xfce4 && sudo chmod 777 /home/Area69Lab/
       # sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 
-    - name: Installing Desktop Environment (wait for 10 min)
+    - name: Installing Desktop Environment (wait for 5-10 min)
       run:  sudo apt update && sudo apt install ubuntu-desktop -y
     - name: Installing Google Chrome Headless
       run: |
@@ -54,7 +54,7 @@ jobs:
       run: |
            sudo apt install nautilus expect nano -y
            sudo apt install --assume-yes xscreensaver
-    - name: Installing Grdp
+    - name: Installing chrome remote desktop
       run: |
            sudo apt-get update
            sudo apt-get install xbase-clients python3-psutil xvfb -y
@@ -76,9 +76,6 @@ jobs:
            send "123456\r"
            expect eof
            '
-    - name: Start Script
-      run: |
-            git clone https://github.com/WINOFFRG/HCJ_Learn.git
             
             
     - name: Sleep for 30 seconds
