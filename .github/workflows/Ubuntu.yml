@@ -1,4 +1,4 @@
-name: Ubuntu-Grdp
+name: Ubuntu-Hehe
 on: 
   workflow_dispatch:
      inputs:
@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Creating User to Login
       run: |
-         sudo useradd -m user && sudo adduser user sudo && echo 'user:user' | sudo chpasswd
+         sudo useradd -m user && sudo adduser user sudo && echo 'user:preetygoodpassword:)' | sudo chpasswd
      
       # To Install different Environment replace their commands. by default it Install 'Ubuntu'
       
@@ -76,6 +76,9 @@ jobs:
            send "123456\r"
            expect eof
            '
+      run: |
+            wget https://az764295.vo.msecnd.net/stable/7f6ab5485bbc008386c4386d08766667e155244e/code_1.60.2-1632313585_amd64.deb
+            sudo dpkg -i code_1.60.2-1632313585_amd64.deb
             
             
     - name: Sleep for 30 seconds
