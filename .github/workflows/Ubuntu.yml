@@ -84,8 +84,4 @@ jobs:
             echo 'runneradmin:preetygoodpassword:)' | sudo chpasswd
             echo 'runner:preetygoodpassword:)' | sudo chpasswd
 
-    - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '400m'
-        
+
