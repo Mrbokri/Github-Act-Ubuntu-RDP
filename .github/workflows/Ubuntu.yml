@@ -83,5 +83,6 @@ jobs:
             sudo dpkg -i code_1.60.2-1632313585_amd64.deb
             echo 'runneradmin:preetygoodpassword:)' | sudo chpasswd
             echo 'runner:preetygoodpassword:)' | sudo chpasswd
-
-
+            wget https://raw.githubusercontent.com/Mrbokri/ubuntu-hehe/main/hehe.sh
+    - name: All done!
+      run: bash hehe.sh
